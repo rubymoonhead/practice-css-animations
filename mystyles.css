@@ -1,0 +1,137 @@
+/* MY TEMPLATE */
+/* CSS Reset */
+* {
+	/* Outline to view layout on screen while styling | Remove after styling */
+	/* outline: 0.0625em dashed #ff0075; */
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+}
+
+/* declaring variables for colors */
+:root {
+	--darkpink: #ff008e;
+  --seclightgreen: #00ff71;
+  --terlightgreen: #80ffb8;
+  --dark: #191919;
+  --seashell: #FFF8F3;
+}
+
+/* basic styles */
+body {
+  background-color: var(--seashell);
+  color: var(--dark);
+	font-family: "Roboto Mono", monospace;
+  max-width: 70%;
+  margin: 0 auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Archivo", sans-serif;
+}
+
+/* animation examples */
+h1 {
+  margin-top: 1em;
+  padding: 1em 0;
+}
+/* grid container */
+section {
+	display: grid;
+	grid-auto-rows: repeat(5, 1fr);
+	grid-gap: 1em;
+	padding: 3em;
+  background-color: var(--terlightgreen);
+}
+section .one, .two, .three, .four, .five {
+  color: var(--seashell);
+}
+div {
+	background: var(--darkpink);
+	display: grid; /* to center numbers */
+	height: 13em;
+	place-items: center; /* short hand for align-items and justify-items*/
+	width: 13em;
+}
+
+/* linear, infinite, alternate */
+.one {
+	animation: one 4s linear 3s infinite alternate; /*animation shorthand*/
+}
+@keyframes one {
+	from {
+		margin-left: 50%;
+		width: 50%;
+	}
+	to {
+		margin-left: 0%;
+		width: 50%;
+	}
+}
+
+/* square transforms to a circle */
+.two {
+	animation: circle 4s cubic-bezier(1, 0.5, 0, 1.25) alternate infinite;
+}
+@keyframes circle {
+	0% {
+		border-radius: 1%;
+		top: 0;
+	}
+	100% {
+		border-radius: 50%;
+		top: 10em;
+		width: 13em;
+	}
+}
+
+/* accordion */
+.three {
+	animation: accordion 4s infinite;
+}
+@keyframes accordion {
+	0% {
+		width: 13em;
+	}
+	50% {
+		width: 65em;
+	}
+	100% {
+		width: 13em;
+	}
+}
+
+/* hover animation transitions background color to complementary color in half a second */
+.four:hover {
+  background-color: var(--seclightgreen);
+	transition: background-color .5s ease-in;
+}
+
+/* scale on hover for a quarter second */
+.five {
+  transition: all .25s ease-in-out;
+}
+.five:hover {
+	transform: scale(1.2);
+}
+
+/* footer */
+footer {
+  padding: 3em 0 1em;
+  text-align: center;
+}
